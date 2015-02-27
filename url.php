@@ -109,8 +109,8 @@ $flag=false;
 </ul>
 					</div>
 					<div class="col-md-12"> <br/>
-						<h3>Insert link below!</h3><br/>
-						
+						<h3>Insert link below!</h3>
+						<p>Format: http://www.example.com/</p><br/>
 						<form method="post" action="">
 						 <input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1"><br/>
 						   <button class="btn btn-default" type="submit" name="submit" id="submit">Go!</button>

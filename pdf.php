@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -77,11 +78,43 @@
 					</div>
 					<div class="col-md-12"> <br/>
 						<br/>
-						<form action="upload.php" method="post" enctype="multipart/form-data">
+						<form action="pdf.php" method="post" enctype="multipart/form-data">
     <h3>Please upload your PDF document below!</h3>
     <input type="file" name="fileToUpload" id="fileToUpload"><br/>
-    <button class="btn btn-default" type="submit">Go!</button>
+    <button class="btn btn-default" type="submit" id="submit" name="submit">Go!</button>
 </form>
+<?php 
+
+if (isset($_POST['submit'])) {
+						
+						$ext = explode(".", $_FILES["file"]["name"]);
+						$extension = $ext[count($ext) - 1];
+						print_r($_FILES);
+						if ($_FILES["file"]["type"] == "application/pdf") {
+							if ($_FILES["file"]["error"] > 0) {
+								echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+							} else {
+								if(!file_exists("files")){
+									mkdir("files");
+								}
+								
+								move_uploaded_file( "files/" .  $_FILES["file"]["name"]);
+								//header('Location: upload.php');
+								echo " <p > Успешно прикачување! <p>";
+								
+
+								
+
+							}
+						} else {
+							
+							echo " <p > Невалиден формат! Внесете .pdf формат. <p>";
+							//header('Location: upload.php');
+						}
+
+					}
+?>
+
 						
 						   
 					</div>
