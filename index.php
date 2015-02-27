@@ -68,12 +68,17 @@
         <div class="section section-white">
 	    	<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="index.php">Text Area</a></li>
   <li role="presentation"><a href="url.php">URL</a></li>
   <li role="presentation"><a href="pdf.php">PDF </a></li>
 </ul>
+					</div>
+					<div class="col-md-12"> <br/>
+						<h3>Insert text below!</h3><br/>
+						<textarea rows="14" cols="150" autofocus="autofocus"></textarea>
+						   <button class="btn btn-default" type="button">Go!</button>
 					</div>
 					
 				</div>
