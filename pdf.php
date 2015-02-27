@@ -68,12 +68,22 @@
         <div class="section section-white">
 	    	<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<ul class="nav nav-tabs">
   <li role="presentation" ><a href="index.php">Text Area</a></li>
   <li role="presentation"><a href="url.php">URL</a></li>
   <li role="presentation" class="active"><a href="pdf.php">PDF </a></li>
 </ul>
+					</div>
+					<div class="col-md-12"> <br/>
+						<br/>
+						<form action="upload.php" method="post" enctype="multipart/form-data">
+    <h3>Please upload your PDF document below!</h3>
+    <input type="file" name="fileToUpload" id="fileToUpload"><br/>
+    <button class="btn btn-default" type="submit">Go!</button>
+</form>
+						
+						   
 					</div>
 					
 				</div>

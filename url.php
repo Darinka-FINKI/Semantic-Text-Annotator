@@ -1,3 +1,36 @@
+<?php
+
+$homepage="";
+$flag="";
+$url="";
+if(isset($_POST['submit']))
+{
+
+	$url=$_POST['url'];
+	
+	
+	//echo $url;
+		if($url!=null)
+	{
+$homepage = file_get_contents($url);
+	}
+	else
+		{ $err="Insert an URL";}
+if($homepage!=null)
+{
+	$flag=true;
+}
+else 
+	{
+	
+$flag=false;
+	
+}
+
+}
+?>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -68,13 +101,31 @@
         <div class="section section-white">
 	    	<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<ul class="nav nav-tabs">
   <li role="presentation"><a href="index.php">Text Area</a></li>
   <li role="presentation"  class="active"><a href="url.php">URL</a></li>
   <li role="presentation"><a href="pdf.php">PDF </a></li>
 </ul>
 					</div>
+					<div class="col-md-12"> <br/>
+						<h3>Insert link below!</h3><br/>
+						
+						<form method="post" action="">
+						 <input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1"><br/>
+						   <button class="btn btn-default" type="submit" name="submit" id="submit">Go!</button>
+						   </form>
+
+					</div>
+					<div class="col-md-12"> <br/>
+						 
+						<p id="quote" style="font-size:  18px; " > <?php if($flag)
+						{
+							
+							echo strip_tags($homepage);  
+						} ?> <p/>
+						
+						</div>
 					
 				</div>
 			</div>

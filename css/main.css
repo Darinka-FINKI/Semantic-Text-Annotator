@@ -2667,3 +2667,9 @@ span.color-red {
 .dropdown.open a.dropdown-toggle .caret {
   border-top: 4px solid #FFF;
 }
+
+#quote{
+	
+	font-size: 22px;
+	color: red;
+}
