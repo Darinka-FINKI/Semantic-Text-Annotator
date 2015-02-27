@@ -70,8 +70,8 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="index.php">Text Area</a></li>
-  <li role="presentation"><a href="url.php">URL</a></li>
+  <li role="presentation"><a href="index.php">Text Area</a></li>
+  <li role="presentation"  class="active"><a href="url.php">URL</a></li>
   <li role="presentation"><a href="pdf.php">PDF </a></li>
 </ul>
 					</div>
