@@ -78,9 +78,10 @@
 					</div>
 					<div class="col-md-12"> <br/>
 						<br/>
-						<form action="pdf.php" method="post" enctype="multipart/form-data">
+						<form action="" method="post"  enctype="multipart/form-data">
     <h3>Please upload your PDF document below!</h3>
-    <input type="file" name="fileToUpload" id="fileToUpload"><br/>
+  
+    <input  type="file"  value="Upload your file:" name="file" id="file"  /><br/>
     <button class="btn btn-default" type="submit" id="submit" name="submit">Go!</button>
 </form>
 <?php 
@@ -98,9 +99,17 @@ if (isset($_POST['submit'])) {
 									mkdir("files");
 								}
 								
-								move_uploaded_file( "files/" .  $_FILES["file"]["name"]);
+								move_uploaded_file( $_FILES["file"]["tmp_name"],"files/" .  $_FILES["file"]["name"]);
 								//header('Location: upload.php');
-								echo " <p > Успешно прикачување! <p>";
+								echo " <p > Успешно прикачување! <p/>";
+								
+								include('class.pdf2text.php');
+$a = new PDF2Text();
+$name=$_FILES["file"]["name"];
+echo $name;
+$a->setFilename("files/".$name); 
+$a->decodePDF();
+echo "<p>" .$a->output( ) ."<p/>";
 								
 
 								
