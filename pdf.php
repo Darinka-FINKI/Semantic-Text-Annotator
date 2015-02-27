@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 						
 						$ext = explode(".", $_FILES["file"]["name"]);
 						$extension = $ext[count($ext) - 1];
-						print_r($_FILES);
+						//print_r($_FILES);
 						if ($_FILES["file"]["type"] == "application/pdf") {
 							if ($_FILES["file"]["error"] > 0) {
 								echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -101,15 +101,14 @@ if (isset($_POST['submit'])) {
 								
 								move_uploaded_file( $_FILES["file"]["tmp_name"],"files/" .  $_FILES["file"]["name"]);
 								//header('Location: upload.php');
-								echo " <p > Успешно прикачување! <p/>";
+								//echo " <p > Успешно прикачување! <p/>";
 								
 								include('class.pdf2text.php');
 $a = new PDF2Text();
 $name=$_FILES["file"]["name"];
-echo $name;
 $a->setFilename("files/".$name); 
 $a->decodePDF();
-echo "<p>" .$a->output( ) ."<p/>";
+echo "<p >" .$a->output( ) ."<p/>";
 								
 
 								
