@@ -1,36 +1,3 @@
-<?php
-
-$homepage="";
-$flag="";
-$url="";
-if(isset($_POST['submit']))
-{
-
-	$url=$_POST['url'];
-	
-	
-	//echo $url;
-		if($url!=null)
-	{
-$homepage = file_get_contents($url);
-	}
-	else
-		{ $err="Insert an URL";}
-if($homepage!=null)
-{
-	$flag=true;
-}
-else 
-	{
-	
-$flag=false;
-	
-}
-
-}
-?>
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -64,35 +31,13 @@ $flag=false;
         <!-- Navigation & Logo-->
         <div class="mainmenu-wrapper">
 	        <div class="container">
-	        	<div class="menuextras">
-					<div class="extras">
-						<ul>
-							
-								
-							</li>
-			        		<li><a href="#">Login</a></li>
-			        	</ul>
-					</div>
-		        </div>
+					<br />
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
 						<li class="logo-wrapper"><a href="index.html"><img src="img/logo.png" alt="FInki logo, FSCE" style="width: 390px"></a></li>
 						<li>
 							<h1>Semantic Text Annotator</h1>
-						</li>
-						<li>
-							
-						</li>
-						<li class="has-submenu active">
-							<a href="#"></a>
-							<div class="mainmenu-submenu">
-								<div class="mainmenu-submenu-inner"> 
-								
-									
-								</div><!-- /mainmenu-submenu-inner -->
-							</div><!-- /mainmenu-submenu -->
-						</li>
-						
+						</li>						
 					</ul>
 				</nav>
 			</div>
@@ -103,30 +48,39 @@ $flag=false;
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="nav nav-tabs">
-  <li role="presentation"><a href="index.php">Text Area</a></li>
-  <li role="presentation"  class="active"><a href="url.php">URL</a></li>
-  <li role="presentation"><a href="pdf.php">PDF </a></li>
-</ul>
+						  <li role="presentation"><a href="index.php">Text Area</a></li>
+						  <li role="presentation"  class="active"><a href="url.php">URL</a></li>
+						  <li role="presentation"><a href="pdf.php">PDF </a></li>
+						</ul>
 					</div>
 					<div class="col-md-12"> <br/>
-						<h3>Insert link below!</h3>
-						<p>Format: http://www.example.com/</p><br/>
+						<h3>Insert your link below!</h3>
+						<p>Format: http://www.example.com/</p>
 						<form method="post" action="">
 						 <input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1"><br/>
-						   <button class="btn btn-default" type="submit" name="submit" id="submit">Go!</button>
-						   </form>
-
+						 <button class="btn btn-default" type="submit" name="submit" id="submit">Submit</button>
+						 </form>
 					</div>
-					<div class="col-md-12"> <br/>
-						 
-						<p id="quote" style="font-size:  18px; " > <?php if($flag)
-						{
-							
-							echo strip_tags($homepage);  
-						} ?> <p/>
-						
-						</div>
-					
+					<div class="col-md-12"> <br/>						 
+						<p id="quote" style="font-size:  18px; " >
+						<?php
+							$text;
+							$url="";
+							if(isset($_POST['submit']))
+							{
+								$url=$_POST['url'];
+								if($url!=null){
+									include_once 'simple_html_dom.php';
+									$text=file_get_html($url)->plaintext;
+									//echo $text;
+								}
+								else{
+								echo  "<p style='color: red' > Please insert an URL <p>";
+								}
+							}
+							?>
+						<p/>						
+					</div>					
 				</div>
 			</div>
 		</div>
@@ -135,32 +89,18 @@ $flag=false;
 	    	<div class="container">
 	    		<h2>Our Work</h2>
 				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<div class="portfolio-item">
-							
-							<div class="portfolio-info">
-								<ul>
-									<li class="portfolio-project-name"> <h2>What is linked Data?</h2></li>
-									<li class="portfolio-project-name"><h3>What is LOD?</h3></li>
-									<li class="portfolio-project-name"> <h3>Can it change the world??</h></li>
-									<li class="portfolio-project-name">What is Open Data?</li>
-									<li class="portfolio-project-name">Is it important?</li>
-									
-									<li class="read-more"><a href="#" class="btn">Read more</a></li>
-								</ul>
-							</div>
+						<div class="portfolio-item">							
+							<?php
+							 if(isset($_POST['submit'])){
+								include_once 'EntityExtraction/example.php';								
+								for ($i=0;$i<count($entities);$i++) {
+									echo $entities[$i]."<br />";
+								}
+							}
+							 /*$text->clear(); 
+							 unset($text);*/
+							?>
 						</div>
-						<h3></h3>
-						<h3></h3>
-					</div>
-					<div class="col-md-6">
-						<div class="video-wrapper">
-							
-							<iframe src="//player.vimeo.com/video/36752317" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-							<p><a href="https://vimeo.com/36752317">Linked Open Data - What is it?</a> </p>
-								</div>
-					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -173,18 +113,6 @@ $flag=false;
 	    	<div class="container">
 	    		<h2>Our Clients</h2>
 				<div class="clients-logo-wrapper text-center row">
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/canon.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/cisco.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/dell.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ea.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ebay.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/facebook.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/google.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/hp.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/microsoft.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/mysql.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/sony.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/yahoo.png" alt="Client Name"></a></div>
 				</div>
 			</div>
 	    </div>
