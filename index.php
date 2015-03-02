@@ -32,7 +32,7 @@
         <div class="mainmenu-wrapper">
 	        <div class="container">
 	        	<br />
-					<div class="logo-wrapper"><a href="index.php"><img src="img/STAlogo.jpg" alt="FInki logo, FSCE" style="width: 390px"></a></div>						
+					<div class="logo-wrapper"><a href="index.php"><img src="img/STAlogo.jpg" alt="logo" style="width: 390px"></a></div>						
 			</div>
 		</div>
 		
@@ -48,8 +48,8 @@
 					</div>
 					<div class="col-md-12"> <br/>
 						<h3>Insert your text below!</h3><br/>
-						<form method="post" action="">
-						<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text"><?php //echo $_POST['text']?></textarea>
+						<form method="post" action="#entities">
+						<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text" <?php echo (isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
 						<button class="btn btn-default" type="submit" id="submit" name="submit">Submit</button>
 						</form>
 					</div>
@@ -58,9 +58,9 @@
 			</div>
 		</div>
 
-		<div class="section">
-	    	<div class="container">
-	    		<h2>Found entities</h2>
+		<div id="entities" class="section">
+	    	<div  class="container">
+	    		<h2>Entities</h2>
 				<div class="row">
 					<div class="portfolio-item">							
 						<div class="portfolio-info">
@@ -81,48 +81,15 @@
 
 	    <!-- End Testimonials -->
 
-	    <!-- Our Clients -->
-	    <div class="section">
-	    	<div class="container">
-	    		<h2>Our Clients</h2>
-			</div>
-	    </div>
+
 	    <!-- End Our Clients -->
 
 	    <!-- Footer -->
 	    <div class="footer">
 	    	<div class="container">
 		    	<div class="row">
-		    		<div class="col-footer col-md-3 col-xs-6">
-		    			<h3>Our Latest Work</h3>
-		    			<div class="portfolio-item">
-							<div class="portfolio-image">
-								<a href="page-portfolio-item.html"><img src="img/portfolio6.jpg" alt="Project Name"></a>
-							</div>
-						</div>
-		    		</div>
-		    		
-		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Contacts</h3>
-		    			<p class="contact-us-details">
-	        				<b>Address:</b> 123 Fake Street, LN1 2ST, London, United Kingdom<br/>
-	        				<b>Phone:</b> +44 123 654321<br/>
-	        				<b>Fax:</b> +44 123 654321<br/>
-	        				<b>Email:</b> <a href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
-	        			</p>
-		    		</div>
-		    		<div class="col-footer col-md-2 col-xs-6">
-		    			<h3>Stay Connected</h3>
-		    			<ul class="footer-stay-connected no-list-style">
-		    				<li><a href="#" class="facebook"></a></li>
-		    				<li><a href="#" class="twitter"></a></li>
-		    				<li><a href="#" class="googleplus"></a></li>
-		    			</ul>
-		    		</div>
-		    	</div>
-		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+		    			<div class="footer-copyright">&copy; 2015 mPurpose. All rights reserved.</div>
 		    		</div>
 		    	</div>
 		    </div>

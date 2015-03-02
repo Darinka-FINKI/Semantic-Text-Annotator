@@ -33,7 +33,7 @@
     	<div class="mainmenu-wrapper">
 	        <div class="container">
 	        	<br />
-					<div class="logo-wrapper"><a href="index.php"><img src="img/STAlogo.jpg" alt="FInki logo, FSCE" style="width: 390px"></a></div>						
+					<div class="logo-wrapper"><a href="index.php"><img src="img/STAlogo.jpg" alt="logo" style="width: 390px"></a></div>						
 			</div>
 		</div>
 		
@@ -48,9 +48,9 @@
 						</ul>
 					</div>
 					<div class="col-md-12"> <br/>
-						<form action="" method="post"  enctype="multipart/form-data">
-  						<h3>Please upload your PDF document below!</h3>  
-					    <input  type="file"  value="Upload your file:" name="file" id="file"  /><br/>
+						<form action="#entities" method="post"  enctype="multipart/form-data">
+  						<h3>Please upload your PDF document below!</h3><br />
+					    <input  type="file"  value="Upload your file:" name="file" id="file"/><br/>
 					    <button class="btn btn-default" type="submit" id="submit" name="submit">Submit</button>
 					</form>
 					
@@ -88,10 +88,11 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="section">
+		
+	
+		<div id="entities" class="section">
 	    	<div class="container">
-	    		<h2>Our Work</h2>
+	    		<h2>Entities</h2>
 				<div class="row">
 						<div class="portfolio-item">							
 							<?php
@@ -106,62 +107,17 @@
 				</div>
 			</div>
 		</div>
+		
+			<br />
+		<br />
+		<br />
 
 	    <!-- End Testimonials -->
 
-	    <!-- Our Clients -->
-	    <div class="section">
-	    	<div class="container">
-	    		<h2>Our Clients</h2>
-				<div class="clients-logo-wrapper text-center row">
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/canon.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/cisco.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/dell.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ea.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/ebay.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/facebook.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/google.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/hp.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/microsoft.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/mysql.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/sony.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="img/logos/yahoo.png" alt="Client Name"></a></div>
-				</div>
-			</div>
-	    </div>
-	    <!-- End Our Clients -->
-
+	    
 	    <!-- Footer -->
 	    <div class="footer">
 	    	<div class="container">
-		    	<div class="row">
-		    		<div class="col-footer col-md-3 col-xs-6">
-		    			<h3>Our Latest Work</h3>
-		    			<div class="portfolio-item">
-							<div class="portfolio-image">
-								<a href="page-portfolio-item.html"><img src="img/portfolio6.jpg" alt="Project Name"></a>
-							</div>
-						</div>
-		    		</div>
-		    		
-		    		<div class="col-footer col-md-4 col-xs-6">
-		    			<h3>Contacts</h3>
-		    			<p class="contact-us-details">
-	        				<b>Address:</b> 123 Fake Street, LN1 2ST, London, United Kingdom<br/>
-	        				<b>Phone:</b> +44 123 654321<br/>
-	        				<b>Fax:</b> +44 123 654321<br/>
-	        				<b>Email:</b> <a href="mailto:getintoutch@yourcompanydomain.com">getintoutch@yourcompanydomain.com</a>
-	        			</p>
-		    		</div>
-		    		<div class="col-footer col-md-2 col-xs-6">
-		    			<h3>Stay Connected</h3>
-		    			<ul class="footer-stay-connected no-list-style">
-		    				<li><a href="#" class="facebook"></a></li>
-		    				<li><a href="#" class="twitter"></a></li>
-		    				<li><a href="#" class="googleplus"></a></li>
-		    			</ul>
-		    		</div>
-		    	</div>
 		    	<div class="row">
 		    		<div class="col-md-12">
 		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
