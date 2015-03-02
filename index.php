@@ -32,15 +32,7 @@
         <div class="mainmenu-wrapper">
 	        <div class="container">
 	        	<br />
-		        <nav id="mainmenu" class="mainmenu">
-					<ul>
-						<li class="logo-wrapper"><a href="index.html"><img src="img/logo.png" alt="FInki logo, FSCE" style="width: 390px"></a></li>
-						<li>
-							<h1>Semantic Text Annotator</h1>
-						</li>
-						<li>						
-					</ul>
-				</nav>
+					<div class="logo-wrapper"><a href="index.php"><img src="img/STAlogo.jpg" alt="FInki logo, FSCE" style="width: 390px"></a></div>						
 			</div>
 		</div>
 		
