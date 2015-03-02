@@ -49,7 +49,7 @@
 					<div class="col-md-12"> <br/>
 						<h3>Insert your text below!</h3><br/>
 						<form method="post" action="#entities">
-						<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text" <?php echo (isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
+						<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text"> <?php echo (isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
 						<button class="btn btn-default" type="submit" id="submit" name="submit">Submit</button>
 						</form>
 					</div>
