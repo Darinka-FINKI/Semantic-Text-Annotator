@@ -57,6 +57,18 @@
 					<div class="col-md-12"> <br/>						 
 						<p id="quote" style="font-size:  18px; " >
 						<?php
+						
+						
+						require_once "phpSesame.php";
+
+$sesame = array('url' => 'http://localhost/openrdf-sesame', 'repository' => 'exampleRepo');
+$store = new phpSesame($sesame['url'], $sesame['repository']);
+						
+						
+						
+						
+						
+						
 							$text;
 							$url="";
 							if(isset($_POST['submit']))
