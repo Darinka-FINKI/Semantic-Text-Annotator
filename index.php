@@ -65,10 +65,17 @@
 					<div class="portfolio-item">							
 						<div class="portfolio-info">
 							<?php
+							 include_once 'sparqlQueryExecute.php';
 							 if(isset($_POST['submit'])){
 								include_once 'EntityExtraction/example.php';								
 								for ($i=0;$i<count($entities);$i++) {
-									echo $entities[$i]."<br />";
+									echo "<b>".$entities[$i]."</b><br />";
+									//<a href='#' class='btn btn-grey btn-sm event-more'>Read More</a>
+									
+									$entityLinks=executeQuery($entities[$i]);
+									for ($j=0;$j<count($entityLinks);$j++) {
+										echo "<a href='$entityLinks[$j]'>".$entityLinks[$j]."</a><br /> ";
+									}
 								}
 							}
 							?>

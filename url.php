@@ -56,14 +56,7 @@
 					</div>
 					<div class="col-md-12"> <br/>						 
 						<p id="quote" style="font-size:  18px; " >
-						<?php
-						
-				
-						
-						
-						
-						
-						
+						<?php					
 							$text;
 							$url="";
 							if(isset($_POST['submit']))
@@ -91,10 +84,16 @@
 				<div class="row">
 						<div class="portfolio-item">							
 							<?php
+							include_once 'sparqlQueryExecute.php';
 							 if(isset($_POST['submit'])){
 								include_once 'EntityExtraction/example.php';								
 								for ($i=0;$i<count($entities);$i++) {
-									echo $entities[$i]."<br />";
+									echo "<b>".$entities[$i]."</b><br />";
+									
+									$entityLinks=executeQuery($entities[$i]);
+									for ($j=0;$j<count($entityLinks);$j++) {
+										echo "<a href='$entityLinks[$j]'>".$entityLinks[$j]."</a><br /> ";
+									}
 								}
 							}
 							 /*$text->clear(); 
@@ -120,7 +119,7 @@ LIMIT 5
   ORDER BY ?genus
    * */ 
    /* ARC2 static class inclusion */ 
-  include_once('semsol/ARC2.php');  
+  /*include_once('semsol/ARC2.php');  
  
   $dbpconfig = array(
   "remote_store_endpoint" => "http://dbpedia.org/sparql",
@@ -157,7 +156,7 @@ SELECT DISTINCT ?species ?binomial ?genus ?label
   ';
   
   /* execute the query */
-  $rows = $store->query($query, 'rows'); 
+ /* $rows = $store->query($query, 'rows'); 
  
     if ($errs = $store->getErrors()) {
        echo "Query errors" ;
@@ -165,7 +164,7 @@ SELECT DISTINCT ?species ?binomial ?genus ?label
     }
  
     /* display the results in an HTML table */
-   echo "<table border='1'>
+   /*echo "<table border='1'>
     <thead>
         <th>#</th>
         <th>Species (Label)</th>
@@ -174,7 +173,7 @@ SELECT DISTINCT ?species ?binomial ?genus ?label
     </thead>";
 
     /* loop for each returned row */
-    foreach( $rows as $row ) { 
+  /*  foreach( $rows as $row ) { 
     print "<tr><td>". "</td>
     <td><a href='". $row['species'] . "'>" . 
     $row['label']."</a></td><td>" . 
@@ -182,7 +181,7 @@ SELECT DISTINCT ?species ?binomial ?genus ?label
     $row['genus']. "</td></tr>";
     }
     echo "</table>" 
-    
+    */
   ?>
 						</div>
 				</div>
