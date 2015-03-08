@@ -1,9 +1,3 @@
-Semantic Text Annotator
+	Semantic Text Annotator
 
-Bugs & Ideas:
-- [ ] да се истестира уабаво за сите можни грешки (пр. јазик што не е англиски и сл.) и да дава соодветна порака
-- [ ] Да се најде подобро решение за прикажување на резултатите од ендпоинтот
-
-Issues:
-- [ ] dropdown (или нешто слично за одбирање на ендпоинт)
-- [ ] JSON API
+Tech: PHP, Bootstrap template, Alchemy API

@@ -6,7 +6,7 @@ $sparqlQuery="SELECT ?subject, ?object WHERE {
   {?subject <http://purl.org/dc/elements/1.1/title> ?object. ?object bif:contains \"'$entity'\"} UNION
   {?subject <http://www.w3.org/2000/01/rdf-schema#label> ?object. ?object bif:contains \"'$entity'\"} UNION
   {?subject <http://www.w3.org/2004/02/skos/core#prefLabel> ?object. ?object bif:contains \"'$entity'\"}
-} LIMIT 5";
+} LIMIT 3";
 
 $dbpediaURL="http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=".urlencode($sparqlQuery)."&format=csv&timeout=0";
 

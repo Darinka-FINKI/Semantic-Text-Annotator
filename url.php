@@ -57,7 +57,7 @@
 					<div class="col-md-12"> <br/>						 
 						<p id="quote" style="font-size:  18px; " >
 						<?php					
-							$text;
+							$text="";
 							$url="";
 							if(isset($_POST['submit']))
 							{

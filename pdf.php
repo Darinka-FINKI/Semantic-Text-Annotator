@@ -55,7 +55,7 @@
 					</form>
 					
 				<?php 				
-				$text;
+				$text="";
 				if (isset($_POST['submit'])) {						
 						$ext = explode(".", $_FILES["file"]["name"]);
 						$extension = $ext[count($ext) - 1];
@@ -67,7 +67,6 @@
 								if(!file_exists("files")){
 									mkdir("files");
 								}
-								
 								move_uploaded_file( $_FILES["file"]["tmp_name"],"files/" .  $_FILES["file"]["name"]);
 								//header('Location: upload.php');
 								//echo " <p > Успешно прикачување! <p/>";								
@@ -78,8 +77,8 @@
 								$a->decodePDF();
 								$text=$a->output();
 							}
-						} else {							
-							echo " <p style='color: red' > Invalid file format, please re-select <p>";
+						} else {
+							 echo " <p style='color: red' > Invalid file format, please re-select <p>";
 							//header('Location: upload.php');
 						}
 					}
