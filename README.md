@@ -1,3 +1,4 @@
-	Semantic Text Annotator
+Semantic Text Annotator
+=========================
 
-Tech: PHP, Bootstrap template, Alchemy API
+**Tech:** PHP, Bootstrap template, Alchemy API
