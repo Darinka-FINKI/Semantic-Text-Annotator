@@ -46,14 +46,14 @@
 						  <li role="presentation"><a href="pdf.php">PDF </a></li>
 						</ul>
 					</div>
-					<div class="col-md-12"> <br/>
-						<h3>Insert your text below!</h3><br/>
-						<form method="post" action="#entities">
-						<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text"> <?php echo (isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
-						<button class="btn btn-default" type="submit" id="submit" name="submit">Submit</button>
-						</form>
-					</div>
-					
+					<div class="col-md-12"> <br/>							
+							<h3>Insert your text below!</h3><br/>					
+							<form method="post" action="#entities">
+							<textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text"> <?php echo (isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
+							<?php include_once 'endpointsDropdown.php'; ?>
+							<button class="btn btn-default btn-lg" type="submit" id="submit" name="submit">Submit</button>
+							</form>							
+					</div>					
 				</div>
 			</div>
 		</div>
@@ -70,8 +70,7 @@
 								include_once 'EntityExtraction/example.php';								
 								for ($i=0;$i<count($entities);$i++) {
 									echo "<b>".$entities[$i]."</b><br />";
-									//<a href='#' class='btn btn-grey btn-sm event-more'>Read More</a>
-									
+																		
 									$entityLinks=executeQuery($entities[$i]);
 									for ($j=0;$j<count($entityLinks);$j++) {
 										echo "<a href='$entityLinks[$j]'>".$entityLinks[$j]."</a><br /> ";

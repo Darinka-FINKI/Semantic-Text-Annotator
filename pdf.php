@@ -51,7 +51,8 @@
 						<form action="#entities" method="post"  enctype="multipart/form-data">
   						<h3>Please upload your PDF document below!</h3><br />
 					    <input  type="file"  value="Upload your file:" name="file" id="file"/><br/>
-					    <button class="btn btn-default" type="submit" id="submit" name="submit">Submit</button>
+					    <?php include_once 'endpointsDropdown.php'; ?>
+					    <button class="btn btn-default btn-lg" type="submit" id="submit" name="submit">Submit</button>
 					</form>
 					
 				<?php 				

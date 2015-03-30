@@ -50,8 +50,9 @@
 						<h3>Insert your link below!</h3>
 						<p>Format: http://www.example.com/</p>
 						<form method="post" action="#entities">
-							<input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1" value="<?php echo (isset($_POST['url']) ? $_POST['url'] : ''); ?>"><br/>
-							<button class="btn btn-default" type="submit" name="submit" id="submit">Submit</button>
+							<input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1" value="<?php echo (isset($_POST['url']) ? $_POST['url'] : ''); ?>">
+							<?php include_once 'endpointsDropdown.php'; ?>
+							<button class="btn btn-default btn-lg" type="submit" name="submit" id="submit">Submit</button>
 						</form>
 					</div>
 					<div class="col-md-12"> <br/>						 
