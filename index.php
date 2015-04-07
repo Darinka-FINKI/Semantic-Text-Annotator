@@ -1,43 +1,4 @@
-<?php
-$url="";
-$qtext="";
-if (isset($_GET['url'])) {
 
-	$url = $_GET['url'];
-	echo $url;
-$flag=0;
-	$text = "";
-
-	include_once 'simple_html_dom.php';
-	$text = file_get_html($url) -> plaintext;
-	//echo $text;
-	
-	
-	/////////
-	include_once 'sparqlQueryExecute1.php';
-							 
-								include_once 'EntityExtraction/example.php';								
-								for ($i=0;$i<count($entities);$i++) {
-									echo "<b>".$entities[$i]."</b><br />";
-									
-									$entityLinks1=executeQuery($entities[$i]);
-									for ($j=0;$j<count($entityLinks1);$j++) {
-										echo "<a href='$entityLinks[$j]'>".$entityLinks1[$j]."</a><br /> ";
-									}
-								}
-							
-	
-	
-	
-	
-	
-
-
-} else {
-	echo "not set";
-	$flag=1;
-}
-?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -92,9 +53,11 @@ $flag=0;
 <form method="post" action="#entities">
 <textarea rows="14" cols="150" autofocus="autofocus" id="text" name="text"> <?php echo(isset($_POST['text']) ? $_POST['text'] : ''); ?></textarea>
 <?php
-	include_once 'endpointsDropdown.php';
+include_once 'endpointsDropdown.php';
  ?>
 <button class="btn btn-default btn-lg" type="submit" id="submit" name="submit">Submit</button>
+
+<button class="btn btn-default btn-lg" type="submit" id="textB" name="textB">JSON Format</button>
 </form>
 </div>
 </div>
@@ -108,25 +71,89 @@ $flag=0;
 <div class="portfolio-item">
 <div class="portfolio-info">
 <?php
-if($flag==1){
-include_once 'sparqlQueryExecute.php';
+ $f = 1;
+$url = "";
+$plaintext = "";
+if (isset($_GET['url'])) {
 
-if (isset($_POST['submit'])) {
-	
-	
+	$url = $_GET['url'];
+	echo $url;
+	$flag = 0;
+	$f = 0;
+	$text = "";
+
+	include_once 'simple_html_dom.php';
+	$text =  file_get_html($url) -> plaintext;
+	//echo $text;
+
+	/////////
+	include_once 'sparqlQueryExecute1.php';
+
 	include_once 'EntityExtraction/example.php';
 	for ($i = 0; $i < count($entities); $i++) {
-		echo "<b>" . $entities[$i] . "</b><br />";
+		echo "<br /> <br /><b>" . $entities[$i] . "</b> ";
 
-		$entityLinks = executeQuery($entities[$i]);
-		for ($j = 0; $j < count($entityLinks); $j++) {
-			echo "<a href='$entityLinks[$j]'>" . $entityLinks[$j] . "</a><br /> ";
+		$entityLinks1 = executeQuery($entities[$i]);
+		for ($j = 0; $j < count($entityLinks1); $j++) {
+			echo "<a href='$entityLinks[$j]'>" . $entityLinks1[$j] . "</a><br /> <br /> ";
 		}
+	}
+
+} else {
+	echo "not set";
+	$flag = 1;
+}
+
+
+
+
+
+
+
+
+
+if ($flag == 1) {
+	$f = 0;
+	include_once 'sparqlQueryExecute.php';
+
+	if (isset($_POST['submit'])) {
+
+		include_once 'EntityExtraction/example.php';
+		for ($i = 0; $i < count($entities); $i++) {
+			echo "<b>" . $entities[$i] . "</b><br />";
+
+			$entityLinks = executeQuery($entities[$i]);
+			for ($j = 0; $j < count($entityLinks); $j++) {
+				echo "<a href='$entityLinks[$j]'>" . $entityLinks[$j] . "</a><br /> ";
+			}
+
+		}
+	}
 	
+	
+	
+	
+	if (isset($_POST['textB'])) {
+
+	include_once 'sparqlQueryExecute2.php';
+
+	include_once 'EntityExtraction/example.php';
+	for ($i = 0; $i < count($entities); $i++) {
+		echo "<br /> <br /><b>" . $entities[$i] . "</b> ";
+
+		$entityLinks2 = executeQuery1($entities[$i]);
+		for ($j = 0; $j < count($entityLinks2); $j++) {
+			echo "<a href='$entityLinks[$j]'>" . $entityLinks2[$j] . "</a><br /> <br /> ";
+		}
 	}
 }
 }
+
+
 ?>
+
+
+<?php ?>
 </div>
 </div>
 </div>
