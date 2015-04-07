@@ -1,5 +1,6 @@
 <?php
 $url="";
+$qtext="";
 if (isset($_GET['url'])) {
 
 	$url = $_GET['url'];
