@@ -1,5 +1,7 @@
 <?php
 
+//function which takes entity as an argument and performs sparql query for finding resources on dbpedia, returns array with urls
+
 function executeQuery($entity){
 	
 $sparqlQuery="SELECT ?subject, ?object WHERE {
@@ -8,11 +10,13 @@ $sparqlQuery="SELECT ?subject, ?object WHERE {
   {?subject <http://www.w3.org/2004/02/skos/core#prefLabel> ?object. ?object bif:contains \"'$entity'\"}
 } LIMIT 3";
 
+
+//string containing dbpedia url for the results in csv format (easiest to parse)
 $dbpediaURL="http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=".urlencode($sparqlQuery)."&format=csv&timeout=0";
 
-//echo $dbpediaURL."<br /> <br />";
-
+//sending request to dbpedia
 $response=request($dbpediaURL);
+//parsing the string from the response into array of urls(strings)
 $splitByLine=explode("\n", $response);
 $entityArray=array();
 	for($i=1;$i<count($splitByLine);$i++){
@@ -24,7 +28,7 @@ return $entityArray;
 }
 
 
-
+//function for sending requests to webpages
 function request($url){
  
    // is curl installed?

@@ -51,22 +51,24 @@
 						<p>Format: http://www.example.com/</p>
 						<form method="post" action="#entities">
 							<input name="url" id="url" type="text" class="form-control"  aria-describedby="basic-addon1" value="<?php echo (isset($_POST['url']) ? $_POST['url'] : ''); ?>">
-							<?php include_once 'endpointsDropdown.php'; ?>
+							<br />
 							<button class="btn btn-default btn-lg" type="submit" name="submit" id="submit">Submit</button>
+							<button class="btn btn-default btn-lg" type="submit" id="jsonBtn" name="jsonBtn">JSON Format</button>
 						</form>
 					</div>
+					
 					<div class="col-md-12"> <br/>						 
 						<p id="quote" style="font-size:  18px; " >
 						<?php					
 							$text="";
 							$url="";
-							if(isset($_POST['submit']))
+							if(isset($_POST['submit'])||isset($_POST['jsonBtn']))
 							{
 								$url=$_POST['url'];
 								if($url!=null){
 									include_once 'simple_html_dom.php';
+									//getting text from given url
 									$text=file_get_html($url)->plaintext;
-									//echo $text;
 								}
 								else{
 								echo  "<p style='color: red' > Please insert an URL <p>";
@@ -85,20 +87,7 @@
 				<div class="row">
 						<div class="portfolio-item">							
 							<?php
-							include_once 'sparqlQueryExecute.php';
-							 if(isset($_POST['submit'])){
-								include_once 'EntityExtraction/example.php';								
-								for ($i=0;$i<count($entities);$i++) {
-									echo "<b>".$entities[$i]."</b><br />";
-									
-									$entityLinks=executeQuery($entities[$i]);
-									for ($j=0;$j<count($entityLinks);$j++) {
-										echo "<a href='$entityLinks[$j]'>".$entityLinks[$j]."</a><br /> ";
-									}
-								}
-							}
-							 /*$text->clear(); 
-							 unset($text);*/
+							include_once 'showResults.php';
 							?>
 						</div>
 				</div>
@@ -111,7 +100,7 @@
 	    	<div class="container">
 		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+		    			<div class="footer-copyright">&copy; 2015 All rights reserved</div>
 		    		</div>
 		    	</div>
 		    </div>

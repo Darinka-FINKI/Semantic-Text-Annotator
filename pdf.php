@@ -51,16 +51,17 @@
 						<form action="#entities" method="post"  enctype="multipart/form-data">
   						<h3>Please upload your PDF document below!</h3><br />
 					    <input  type="file"  value="Upload your file:" name="file" id="file"/><br/>
-					    <?php include_once 'endpointsDropdown.php'; ?>
+					    
 					    <button class="btn btn-default btn-lg" type="submit" id="submit" name="submit">Submit</button>
+					    <button class="btn btn-default btn-lg" type="submit" id="jsonBtn" name="jsonBtn">JSON Format</button>
 					</form>
 					
 				<?php 				
 				$text="";
-				if (isset($_POST['submit'])) {						
+				if (isset($_POST['submit'])||isset($_POST['jsonBtn'])) {						
 						$ext = explode(".", $_FILES["file"]["name"]);
 						$extension = $ext[count($ext) - 1];
-						//print_r($_FILES);
+						
 						if ($_FILES["file"]["type"] == "application/pdf") {
 							if ($_FILES["file"]["error"] > 0) {
 								echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -68,9 +69,7 @@
 								if(!file_exists("files")){
 									mkdir("files");
 								}
-								move_uploaded_file( $_FILES["file"]["tmp_name"],"files/" .  $_FILES["file"]["name"]);
-								//header('Location: upload.php');
-								//echo " <p > Успешно прикачување! <p/>";								
+								move_uploaded_file( $_FILES["file"]["tmp_name"],"files/" .  $_FILES["file"]["name"]);							
 								include('class.pdf2text.php');
 								$a = new PDF2Text();
 								$name=$_FILES["file"]["name"];
@@ -80,7 +79,6 @@
 							}
 						} else {
 							 echo " <p style='color: red' > Invalid file format, please re-select <p>";
-							//header('Location: upload.php');
 						}
 					}
 				?>
@@ -96,18 +94,7 @@
 				<div class="row">
 						<div class="portfolio-item">							
 							<?php
-							 include_once 'sparqlQueryExecute.php';
-							 if(isset($_POST['submit'])){
-								include_once 'EntityExtraction/example.php';								
-								for ($i=0;$i<count($entities);$i++) {
-									echo "<b>".$entities[$i]."</b><br />";
-									
-									$entityLinks=executeQuery($entities[$i]);
-									for ($j=0;$j<count($entityLinks);$j++) {
-										echo "<a href='$entityLinks[$j]'>".$entityLinks[$j]."</a><br /> ";
-									}
-								}
-							}
+							include_once 'showResults.php';
 							?>
 						</div>
 				</div>
@@ -126,7 +113,7 @@
 	    	<div class="container">
 		    	<div class="row">
 		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+		    			<div class="footer-copyright">&copy; 2015 All rights reserved</div>
 		    		</div>
 		    	</div>
 		    </div>
